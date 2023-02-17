@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from vacancy import views as top_page_views
 
 # Customize Admin Interface
 admin.site.site_header = 'Job Board Admin'
@@ -27,6 +28,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # urls handling WYSIWYG editor
     path('editor/', include('django_summernote.urls')),
+    # Landing Page URL
+    path('', top_page_views.landing_page, name='landing_page'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -35,11 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'vacancy.apps.VacancyConfig',
+    'vacancy.apps.VacancyConfig',  # Vacancy-App
+    'users.apps.UsersConfig',  # Users-App
     # Third-Party Packages
     'taggit',  # https://django-taggit.readthedocs.io/en/latest/getting_started.html
     'django_summernote',  # https://www.geeksforgeeks.org/adding-wysiwyg-editor-to-django-project/
     'django_countries',  # https://pypi.org/project/django-countries/
+    'phonenumber_field',  # https://django-phonenumber-field.readthedocs.io/en/latest/
 ]
 
 MIDDLEWARE = [
@@ -106,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Harare'
 
 USE_I18N = True
 
@@ -116,6 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, '')
 
 # add it in settings.py
 MEDIA_URL = '/media/'
@@ -131,3 +139,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Django-taggit Setting
 TAGGIT_CASE_INSENSITIVE = True  # make it case-insensitive
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_ADDRESS')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')

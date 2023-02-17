@@ -28,7 +28,7 @@ MINIMUM_QUALIFICATION = (
 TYPE_OF_INDUSTRY = (
     ('private', 'Private'),
     ('government', 'Government'),
-    ('ngo', 'NGO'),
+    ('ngo', 'NGO'), # Todo: Add more
 )
 
 EMPLOYEE_TYPE = (
@@ -91,6 +91,20 @@ class CompanyGallery(models.Model):
     gallery_image = models.ImageField(upload_to='company_gallery/')  # TODO: Check Database if 4 images exist and
     # restrict
     caption = models.TextField(help_text='Say something about this image')
+
+
+class CompanyManagement(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    is_owner = models.BooleanField(default=False)
+    can_edit = models.BooleanField(default=False)
+    can_delete = models.BooleanField(default=False)
+    can_add_users = models.BooleanField(default=False)
+    added_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='added_by') # Who added the person?
+
+    def __str__(self):
+        return f"{self.user.username} ({self.company.name})"
+
 
 
 class Vacancy(models.Model):
