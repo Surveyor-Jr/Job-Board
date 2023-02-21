@@ -7,12 +7,14 @@ from django.core.mail import send_mail
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
+    """Create a user profile on each account creation"""
     if created:
         UserProfile.objects.create(created_by=instance)
 
 
 @receiver(post_save, sender=User)
 def send_welcome_email(sender, instance, created, **kwargs):
+    """Send a welcome email to all new users"""
     if created:
         subject = 'Welcome to Job-Board'
         message = f'Hi {instance.username}, Welcome to Job-Board!'  # TODO: Create an email template for this

@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 from vacancy import views as top_page_views
+from users.forms import LoginForm
 
 # Customize Admin Interface
 admin.site.site_header = 'Job Board Admin'
@@ -30,6 +32,10 @@ urlpatterns = [
     path('editor/', include('django_summernote.urls')),
     # Landing Page URL
     path('', top_page_views.landing_page, name='landing_page'),
+    # Extended URLs
+    path('', include('users.urls')),
+    # Authentication
+    path('login/', auth_views.LoginView.as_view(template_name='auth_views/login.html'), {'form': LoginForm}, name='login'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

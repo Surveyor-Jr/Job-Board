@@ -22,35 +22,13 @@ C
 vacancy/__init__.py,5\4\5410c7428e3488a6f9b03367bc2f4b21d62ff43c
 N
 vacancy/migrations/__init__.py,8\1\8139aefd5326316a2fd0a66958000daea59f758c
-@
-vacancy/views.py,0\4\043c2cf95c15cc4ab3b12a901e8e1679cc2a4743
-?
-vacancy/urls.py,c\3\c32b7eca5e836bbf87c8b9f24ac5e5983ecf9d9e
-@
-jobBoard/urls.py,8\8\885af17600a0bfd17853c881b7ee81062745395f
-C
-templates/base.html,d\a\da7c237b85a69c00a9ab8c189bf63e22070fcac3
 X
 (templates/public_views/landing_page.html,2\f\2f660f346744c0f452d8441992125e11cc114d4e
 @
 vacancy/admin.py,8\b\8b39a67ae663b7b6873f0acdaf764cce75f1f574
->
-users/admin.py,3\e\3ea505836db8ef76dd1c89a43cfc6ee4cd79a896
 P
  users/migrations/0001_initial.py,a\a\aa2b019e6f6bf6fa64eff808af7b58f0ae1bbc56
-4
-.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
-?
-users/models.py,f\1\f121007a966dcbe0e6d77b6ca09948108f3edfbb
-A
-vacancy/models.py,e\3\e36944aa721d4d7bef60772159e1c1212e14989e
-@
-users/signals.py,a\0\a0e0150836975a196d6c9d23ebabbcfa31d724e1
 =
 users/apps.py,5\4\547f374cbbeef99e636bc50f0d5b5ba07651acb5
 ?
 vacancy/apps.py,4\0\407357c4003e125a8f3d022d1a5da5d1dc13b47c
-B
-vacancy/signals.py,c\4\c4638c3c7dc5705c29b6f774609ab2962962ff47
-D
-jobBoard/settings.py,b\9\b93f84b009b4eb255de775b8f0ebe2cf34842456
